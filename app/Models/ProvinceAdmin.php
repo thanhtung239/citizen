@@ -12,6 +12,7 @@ class ProvinceAdmin extends Model
 
     protected $fillable = [
         'central_admin_id',
+        'employee_number',
         'name',
         'email',
         'password',

@@ -18,6 +18,9 @@ class CreatePeopleInfomationsTable extends Migration
             $table->unsignedBigInteger('province_id')->nullable();
             $table->unsignedBigInteger('district_id')->nullable();
             $table->unsignedBigInteger('village_id')->nullable();
+            $table->unsignedBigInteger('province_admin_id')->nullable();
+            $table->unsignedBigInteger('district_admin_id')->nullable();
+            $table->unsignedBigInteger('village_admin_id')->nullable();
             $table->string('identification')->unique();
             $table->string('name');
             $table->string('birthday');
@@ -28,7 +31,7 @@ class CreatePeopleInfomationsTable extends Migration
             $table->string('edu_level')->nullable();
             $table->string('job')->nullable();
             $table->timestamps();
-            $table->softDeletes();;
+            $table->softDeletes();
         });
     }
 

@@ -12,6 +12,7 @@ class DistrictAdmin extends Model
 
     protected $fillable = [
         'province_admin_id',
+        'employee_number',
         'name',
         'email',
         'password',

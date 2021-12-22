@@ -16,6 +16,7 @@ class CreateProvinceAdminsTable extends Migration
         Schema::create('province_admins', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('central_admin_id')->nullable();
+            $table->string('employee_number')->unique();
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');

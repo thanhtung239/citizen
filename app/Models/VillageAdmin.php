@@ -12,6 +12,7 @@ class VillageAdmin extends Model
 
     protected $fillable = [
         'district_admin_id',
+        'employee_number',
         'name',
         'email',
         'password',
