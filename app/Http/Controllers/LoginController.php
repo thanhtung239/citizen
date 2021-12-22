@@ -11,9 +11,71 @@ class LoginController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function showLogin()
+    public function showAdminLogin()
     {
-        return view('admin.login');
+        return view('auth.admin_login');
+    }
+
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showCentralAdminLogin()
+    {
+        return view('auth.central_admin_login');
+    }
+
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showProvinceAdminLogin()
+    {
+        return view('auth.province_admin_login');
+    }
+
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showDistrictAdminLogin()
+    {
+        return view('auth.district_admin_login');
+    }
+
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showWardAdminLogin()
+    {
+        return view('auth.ward_admin_login');
+    }
+
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function adminLogin(Request $request)
+    {
+        $this->validate($request, [
+            'username' => 'required|string',
+            'password' => 'required|string',
+        ]);
+
+        if (Auth::attempt(['username' => $request['username'], 'password' => $request['password']])) {
+            return redirect()->route('admin.index');
+        } else {
+            return redirect()->back()
+                ->with('error', 'Username or Password are wrong.');
+        }
     }
 
     /**
@@ -21,7 +83,67 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function login(Request $request)
+    public function centralAdminLogin(Request $request)
+    {
+        $this->validate($request, [
+            'username' => 'required|string',
+            'password' => 'required|string',
+        ]);
+
+        if (Auth::attempt(['username' => $request['username'], 'password' => $request['password']])) {
+            return redirect()->route('admin.index');
+        } else {
+            return redirect()->back()
+                ->with('error', 'Username or Password are wrong.');
+        }
+    }
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function provinceAdminLogin(Request $request)
+    {
+        $this->validate($request, [
+            'username' => 'required|string',
+            'password' => 'required|string',
+        ]);
+
+        if (Auth::attempt(['username' => $request['username'], 'password' => $request['password']])) {
+            return redirect()->route('admin.index');
+        } else {
+            return redirect()->back()
+                ->with('error', 'Username or Password are wrong.');
+        }
+    }
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function districtAdminLogin(Request $request)
+    {
+        $this->validate($request, [
+            'username' => 'required|string',
+            'password' => 'required|string',
+        ]);
+
+        if (Auth::attempt(['username' => $request['username'], 'password' => $request['password']])) {
+            return redirect()->route('admin.index');
+        } else {
+            return redirect()->back()
+                ->with('error', 'Username or Password are wrong.');
+        }
+    }
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function wardAdminLogin(Request $request)
     {
         $this->validate($request, [
             'username' => 'required|string',

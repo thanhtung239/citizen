@@ -1,19 +1,12 @@
-// Body
-$body-bg: #f8fafc;
+@font-face {
+  font-family: "utm_bryantlgregular";
+  src: url('/fonts/utm_bryantlg-webfont.woff2') format("woff2"),
+       url('/fonts/utm_bryantlg-webfont.woff') format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
-// Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 
-// Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66d9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+$font_Open_Sans: "Open Sans", sans-serif;
+$font_UTM_BryantLG: "utm_bryantlgregular";
