@@ -16,6 +16,7 @@ class CreateVillageAdminsTable extends Migration
         Schema::create('village_admins', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('district_admin_id')->nullable();
+            $table->string('employee_number')->unique();
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
