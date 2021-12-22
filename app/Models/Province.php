@@ -11,7 +11,6 @@ class Province extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'province_admin_id',
-        'name',
+        'name'
     ];
 }

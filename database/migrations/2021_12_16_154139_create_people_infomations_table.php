@@ -13,14 +13,14 @@ class CreatePeopleInfomationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('people_infomations', function (Blueprint $table) {
+        Schema::create('people_information', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('province_id')->nullable();
             $table->unsignedBigInteger('district_id')->nullable();
-            $table->unsignedBigInteger('village_id')->nullable();
+            $table->unsignedBigInteger('ward_id')->nullable();
             $table->unsignedBigInteger('province_admin_id')->nullable();
             $table->unsignedBigInteger('district_admin_id')->nullable();
-            $table->unsignedBigInteger('village_admin_id')->nullable();
+            $table->unsignedBigInteger('ward_admin_id')->nullable();
             $table->string('identification')->unique();
             $table->string('name');
             $table->string('birthday');

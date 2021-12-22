@@ -12,7 +12,6 @@ class District extends Model
 
     protected $fillable = [
         'province_id',
-        'district_admin_id',
         'name',
     ];
 }
