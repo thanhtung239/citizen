@@ -12,7 +12,6 @@ class Village extends Model
 
     protected $fillable = [
         'district_id',
-        'village_admin_id',
         'name',
     ];
 }

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PeopleInfomation extends Model
+class PeopleInformation extends Model
 {
     use HasFactory;
     use SoftDeletes;
