@@ -1,0 +1,118 @@
+.admin-login {
+  font-family: $font_UTM_BryantLG;
+
+  .login-form {
+    background-color: #fff;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+  }
+
+  form {
+    padding: 0 2em;
+  }
+
+  .form-input {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    border: 0px solid transparent;
+    border-radius: 0;
+    border-bottom: 1px solid #aaa;
+    padding: 1em 0.5em 0.5em;
+    padding-left: 2em;
+    outline: none;
+    margin: 1.5em auto;
+    transition: all 0.5s ease;
+  }
+
+  .form-input:focus {
+    border-bottom-color: #008080;
+    box-shadow: 0 0 5px rgba(0, 80, 80, 0.4);
+    border-radius: 4px;
+  }
+
+  .btn {
+    font-size: 18px;
+    transition: all 0.5s ease;
+    width: 70%;
+    border-radius: 30px;
+    color: #008080;
+    font-weight: 700;
+    background-color: #fff;
+    border: 1px solid #008080;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+  }
+
+  .btn:hover,
+  .btn:focus {
+    background-color: #008080;
+    color: #fff;
+  }
+
+  .main-content {
+    width: 50%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    margin: 5em auto;
+    display: flex;
+  }
+
+  .company-info {
+    background-color: #008080;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+  }
+
+  .fa-sign-in-alt {
+    font-size: 100px;
+  }
+
+  .check-box {
+    margin-top: 8px;
+  }
+
+  .title {
+    margin-top: 20px;
+    font-size: 32px;
+    color: #008080;
+    font-weight: 700;
+    -webkit-text-stroke-width: 1px;
+  }
+
+  .register-line {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+  }
+
+  .remember-me {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+  
+@media screen and (max-width: 640px) {
+  .main-content {
+    width: 90%;
+  }
+  .company__info {
+    display: none;
+  }
+  .login_form {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+}
+
+@media screen and (min-width: 642px) and (max-width: 800px) {
+  .main-content {
+    width: 70%;
+  }
+}
