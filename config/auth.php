@@ -46,6 +46,31 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
+        'central_admin' => [
+            'driver' => 'session',
+            'provider' => 'central_admins',
+        ],
+
+        'province_admin' => [
+            'driver' => 'session',
+            'provider' => 'province_admins',
+        ],
+
+        'district_admin' => [
+            'driver' => 'session',
+            'provider' => 'district_admins',
+        ],
+
+        'ward_admin' => [
+            'driver' => 'session',
+            'provider' => 'ward_admins',
+        ],
     ],
 
     /*
@@ -66,9 +91,34 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        // 'users' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Models\User::class,
+        // ],
+
+        'admin' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Admin::class,
+        ],
+
+        'central_admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\CentralAdmin::class,
+        ],
+
+        'province_admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\ProvinceAdmin::class,
+        ],
+
+        'district_admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\DistrictAdmin::class,
+        ],
+
+        'ward_admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\WardAdmin::class,
         ],
 
         // 'users' => [

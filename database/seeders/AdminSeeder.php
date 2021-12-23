@@ -40,7 +40,7 @@ class AdminSeeder extends Seeder
             'password' => bcrypt('1')
         ]);
 
-        DB::table('wards_admin')->insert([
+        DB::table('ward_admins')->insert([
             'name' => 'Ward Admin',
             'email' => 'thanhne@citizen.gov.vn',
             'employee_number' => '220701',

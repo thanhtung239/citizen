@@ -25,14 +25,17 @@ Quickly set up skeleton for your Laravel 8.x app
 5. Generate app key : `php artisan key:generate`
 6. Migrate database: `php artisan migrate`
 7. Seed database: `php artisan db:seed`
-8. Open up web server: `php artisan serve`
-9. Browse app: `localhost:8000`
-10. Login using test account: Email: `test@haposoft.com` / Password: `123456789`
+8. Config administrative unit database: `php artisan vietnam-map:install`
+9. Open up web server: `php artisan serve`
+10. Home page: `localhost:8000`
+11. Ward admin: `localhost:8000/ward_admin/login`
+12. Ward admin account: Username: thanhne@citizen.gov.vn
+                        Password: 1
+13. Auto run dev: `npm run watch` ( turn off notifications :D )
+
 
 ## Technical support:
-- [Skype Group](https://join.skype.com/HxHLdORRW2gO)
-- [Facebook Group](https://www.facebook.com/laravelvn/)
 
-## License
+- [Facebook](https://www.facebook.com/thanhtung239/)
 
-[MIT license](https://opensource.org/licenses/MIT).
+

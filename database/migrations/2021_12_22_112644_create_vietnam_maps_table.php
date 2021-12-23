@@ -72,11 +72,11 @@ class CreateVietnamMapsTable extends Migration
         }
 
         Schema::table($tableNames['wards'], function (Blueprint $table) use ($tableNames, $columnNames) {
-            $table->dropForeign( $tableNames['wards'] . '_' . $columnNames['district_id'] . '_foreign');
+            $table->dropForeign($tableNames['wards'] . '_' . $columnNames['district_id'] . '_foreign');
         });
 
         Schema::table($tableNames['districts'], function (Blueprint $table) use ($tableNames, $columnNames) {
-            $table->dropForeign( $tableNames['districts'] . '_' . $columnNames['province_id'] . '_foreign');
+            $table->dropForeign($tableNames['districts'] . '_' . $columnNames['province_id'] . '_foreign');
         });
 
         Schema::dropIfExists($tableNames['provinces']);

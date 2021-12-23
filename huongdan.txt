@@ -1,0 +1,18 @@
+- Viết nội dung thẻ body của html trong: resources/view/home/index.blade.php (viết trong section('content'))
+
+- Đã config head chỉ cần viết nội dung trong thẻ body
+
+- Viết scss trong: resources/scss/pages/home.scss
+
+- Đặt biến, mixin trong: resources/scss/abstracts/variables.scss
+
+- Viết js trong: resources/js/home.js
+
+- Ảnh lưu trong: resources/assets/img
+
+-Font chữ lưu trong: resources/assets/fonts
+
+- Code xong muốn xem thay đổi thì chạy: npm run dev
+
+- Nếu muốn auto run dev không cần chạy lệnh bằng tay thì: npm run watch 
+(Mỗi tội nó sẽ thông báo liên tục)

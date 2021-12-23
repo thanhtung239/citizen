@@ -25,6 +25,7 @@ class CreatePeopleInfomationsTable extends Migration
             $table->string('name');
             $table->string('birthday');
             $table->string('gender');
+            $table->string('hamlet');
             $table->string('home_town')->nullable();
             $table->string('resident')->nullable();
             $table->string('religion')->nullable();
