@@ -21,6 +21,5 @@
 </head>
 <body>
     @yield('content')
-    Lúc nào làm mấy page admin sẽ thêm header, footer
 </body>
 </html>

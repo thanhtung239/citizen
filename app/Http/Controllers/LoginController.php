@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -146,15 +147,18 @@ class LoginController extends Controller
     public function wardAdminLogin(Request $request)
     {
         $this->validate($request, [
-            'username' => 'required|string',
+            'email' => 'required|email',
             'password' => 'required|string',
         ]);
 
-        if (Auth::attempt(['username' => $request['username'], 'password' => $request['password']])) {
-            return redirect()->route('admin.index');
+        if (auth()->guard('ward_admin')->attempt([
+            'email' => $request['email'],
+            'password' => $request['password']
+        ])) {
+            return redirect()->route('ward_admin.dashboard')->with('success', 'Access successful!');
         } else {
             return redirect()->back()
-                ->with('error', 'Username or Password are wrong.');
+                ->with('error', 'These credentials do not match our records.');
         }
     }
 }

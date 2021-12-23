@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWardsAdminTable extends Migration
+class CreateWardAdminsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateWardsAdminTable extends Migration
      */
     public function up()
     {
-        Schema::create('wards_admin', function (Blueprint $table) {
+        Schema::create('ward_admins', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('district_admin_id')->nullable();
             $table->string('employee_number')->unique();
@@ -35,6 +35,6 @@ class CreateWardsAdminTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wards_admin');
+        Schema::dropIfExists('ward_admins');
     }
 }

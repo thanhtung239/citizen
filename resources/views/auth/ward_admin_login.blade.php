@@ -15,7 +15,7 @@
                     <form action=" {{ route('ward_admin.login') }} " class="form-group w-100" method="POST">
                         @csrf
                         <div class="row">
-                            <input type="text" name="username" id="username" class="form-input" placeholder="Username">
+                            <input type="email" name="email" id="email" class="form-input" placeholder="Email">
                         </div>
                         <div class="row">
                             <input type="password" name="password" id="password" class="form-input" placeholder="Password">
