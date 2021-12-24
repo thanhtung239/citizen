@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\PeopleInformation;
+use Illuminate\Support\Facades\Auth;
 
 class WardAdminController extends Controller
 {
@@ -16,9 +18,11 @@ class WardAdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('ward_admin.index');
+        $wardId = Auth::guard('ward_admin')->user()->employee_number;
+        $people = PeopleInformation::where('ward_admin_id', $wardId)->search($request)->paginate(15);
+        return view('ward_admin.index', compact('people'));
     }
 
     /**
@@ -28,7 +32,7 @@ class WardAdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('ward_admin.create');
     }
 
     /**

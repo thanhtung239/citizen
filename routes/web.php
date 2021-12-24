@@ -22,8 +22,13 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::prefix('ward_admin')->group(function () {
     Route::get('/login', [LoginController::class, 'showWardAdminLogin'])->name('ward_admin.show_login');
     Route::post('/login', [LoginController::class, 'wardAdminLogin'])->name('ward_admin.login');
-    Route::get('/dashboard', [WardAdminController::class, 'dashboard'])->name('ward_admin.dashboard');
+    Route::get('/dashboard', [WardAdminController::class, 'dashboard'])->name('ward_admin.dashboard')->middleware( 'ward.admin');
+    Route::post('/logout', [LoginController::class, 'wardAdminLogout'])->name('ward_admin.logout');
 });
 
 Route::resource('ward_admin', WardAdminController::class);
+
+Route::group(['middleware' => ['ward.admin']], function () {
+    Route::resource('ward_admin', WardAdminController::class);
+});
 

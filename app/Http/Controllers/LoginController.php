@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Http\JsonResponse;
 
 class LoginController extends Controller
 {
@@ -160,5 +162,60 @@ class LoginController extends Controller
             return redirect()->back()
                 ->with('error', 'These credentials do not match our records.');
         }
+    }
+
+    public function AdminLogout(Request $request)
+    {
+        auth()->guard('admin')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return $request->wantsJson()
+            ? new JsonResponse([], 204)
+            : redirect('/admin/login');
+    }
+
+    public function centralAdminLogout(Request $request)
+    {
+        auth()->guard('central_admin')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return $request->wantsJson()
+            ? new JsonResponse([], 204)
+            : redirect('/central_admin/login');
+    }
+
+    public function provinceAdminLogout(Request $request)
+    {
+        auth()->guard('province_admin')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return $request->wantsJson()
+            ? new JsonResponse([], 204)
+            : redirect('/province_admin/login');
+    }
+
+    public function districtAdminLogout(Request $request)
+    {
+        auth()->guard('district_admin')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return $request->wantsJson()
+            ? new JsonResponse([], 204)
+            : redirect('/district_admin/login');
+    }
+
+    public function wardAdminLogout(Request $request)
+    {
+        auth()->guard('ward_admin')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return $request->wantsJson()
+            ? new JsonResponse([], 204)
+            : redirect('/ward_admin/login');
     }
 }
