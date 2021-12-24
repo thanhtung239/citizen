@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -22,20 +22,32 @@
 <body>
     <main>
         <div>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <nav class="admin-navbar navbar navbar-expand-md d-flex justify-content-end">
+                <div class="" id="">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="ml-md-5">
+                    <li class="nav-item active mr-2">
+                        <a class="nav-link {{ Route::currentRouteName() == 'ward_admin.dashboard' ? 'active' : '' }}" href="{{ route('ward_admin.dashboard') }}">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::currentRouteName() == 'ward_admin.index' ? 'active' : '' }}" href="{{ route('ward_admin.index') }}">Danh sách nhân khẩu</a>
+                    </li>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link {{ Route::currentRouteName() == 'ward_admin.create' ? 'active' : '' }}" href="{{ route('ward_admin.create') }}">Khai báo</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link navbar-link-element  dropdown-toggle name-of-user" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::guard('ward_admin')->user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-center" aria-labelledby="navbarDropdown" id="dropdownMenuUser">
+                            <form id="logoutForm" action="{{ route('ward_admin.logout') }}" method="POST">
+                                @csrf
+                                <button id="logoutButton" class="dropdown-item m-0 text-center" href="{{ route('ward_admin.logout') }}">Logout</button>
+                            </form>
+                        </div>
+                    </li>
+                    <li class="mr-md-5">
                         <a href=""></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('ward_admin.dashboard') }}">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('ward_admin.index') }}">Danh sách nhân khẩu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Khai báo</a>
                     </li>
                     </ul>
                 </div>

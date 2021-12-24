@@ -18,4 +18,9 @@ class Ward extends Model
     {
         return $this->belongsTo(District::class, config('vietnam-maps.columns.district_id'), 'id');
     }
+
+    public function peopleInformations()
+    {
+        return $this->hasMany(PeopleInformation::class, 'ward_id');
+    }
 }
