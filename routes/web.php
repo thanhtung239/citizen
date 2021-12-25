@@ -30,5 +30,7 @@ Route::resource('ward_admin', WardAdminController::class);
 
 Route::group(['middleware' => ['ward.admin']], function () {
     Route::resource('ward_admin', WardAdminController::class);
+    Route::get('/provinces-district/{id}', [WardAdminController::class, 'indexDistrict']);
+    Route::get('/provinces-districts-ward/{id}', [WardAdminController::class, 'indexWard']);
 });
 

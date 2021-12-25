@@ -396,3 +396,43 @@
     vertical-align: middle;
   }
 }
+
+@media screen and (min-width: 575px) and (max-width: 768px) {
+  .account-management {
+    .btn {
+      margin-top: 15px;
+    }
+
+    .manage-account {
+      font-size: 26px;
+    }
+
+    .column-title {
+      font-size: 18px;
+    }
+  }
+
+  .table {
+    width: 200%;
+  }
+}
+
+@media(max-width: 575px) {
+  .account-management {
+    .btn {
+      margin-top: 15px;
+    }
+
+    .manage-account {
+      font-size: 27px;
+    }
+
+    .column-title {
+      font-size: 18px;
+    }
+  }
+
+  .table {
+    width: 300%;
+  }
+}

@@ -16253,23 +16253,30 @@ h3 {
   font-weight: 600;
 }
 
-@media screen and (max-width: 640px) {
-  .main-content {
-    width: 90%;
+@media screen and (max-width: 575px) {
+  .admin-login .main-content {
+    width: 70%;
   }
-
-  .company__info {
+  .admin-login .company-info {
     display: none;
   }
-
-  .login_form {
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+  .admin-login .login-form {
+    border-radius: 20px;
   }
 }
-@media screen and (min-width: 642px) and (max-width: 800px) {
+@media screen and (min-width: 575px) and (max-width: 768px) {
   .main-content {
     width: 70%;
+  }
+
+  .admin-login .company-info {
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0px;
+  }
+  .admin-login .login-form {
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
 }
 .ward-admin-create {
@@ -16688,4 +16695,35 @@ h3 {
 .account-management .custom-checkbox {
   text-align: center;
   vertical-align: middle;
+}
+
+@media screen and (min-width: 575px) and (max-width: 768px) {
+  .account-management .btn {
+    margin-top: 15px;
+  }
+  .account-management .manage-account {
+    font-size: 27px;
+  }
+  .account-management .column-title {
+    font-size: 18px;
+  }
+
+  .table {
+    width: 200%;
+  }
+}
+@media (max-width: 575px) {
+  .account-management .btn {
+    margin-top: 15px;
+  }
+  .account-management .manage-account {
+    font-size: 27px;
+  }
+  .account-management .column-title {
+    font-size: 18px;
+  }
+
+  .table {
+    width: 300%;
+  }
 }
