@@ -98,21 +98,36 @@
   }
 }
   
-@media screen and (max-width: 640px) {
-  .main-content {
-    width: 90%;
-  }
-  .company__info {
-    display: none;
-  }
-  .login_form {
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+@media screen and (max-width: 575px) {
+  .admin-login {
+    .main-content { 
+      width: 70%;
+    }
+    .company-info {
+      display: none;
+    }
+
+    .login-form { 
+      border-radius: 20px;
+    }
   }
 }
 
-@media screen and (min-width: 642px) and (max-width: 800px) {
+@media screen and (min-width: 575px) and (max-width: 768px) {
   .main-content {
     width: 70%;
+  }
+
+  .admin-login {
+    .company-info {
+      border-top-right-radius: 20px;
+      border-bottom-left-radius: 0px;
+    }
+
+    .login-form {
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
   }
 }
