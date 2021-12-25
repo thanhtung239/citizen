@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\PeopleInformation;
 
 class PeopleInformationSeeder extends Seeder
 {
@@ -13,6 +14,6 @@ class PeopleInformationSeeder extends Seeder
      */
     public function run()
     {
-        //
+        PeopleInformation::factory(10000)->create();
     }
 }
