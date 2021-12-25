@@ -36,14 +36,14 @@ class AdminSeeder extends Seeder
         DB::table('district_admins')->insert([
             'name' => 'District Admin',
             'email' => 'kienxuong@citizen.gov.vn',
-            'employee_number' => '2207',
+            'employee_number' => '22240',
             'password' => bcrypt('1')
         ]);
 
         DB::table('ward_admins')->insert([
             'name' => 'Ward Admin',
             'email' => 'thanhne@citizen.gov.vn',
-            'employee_number' => '220701',
+            'employee_number' => '222404156',
             'password' => bcrypt('1')
         ]);
     }

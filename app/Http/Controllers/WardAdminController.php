@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PeopleInformation;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Province;
+use App\Models\District;
 
 class WardAdminController extends Controller
 {
@@ -63,9 +65,10 @@ class WardAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($peopleId)
     {
-        //
+        $info = PeopleInformation::where('id', $peopleId)->first();
+        return view('ward_admin.edit', compact('info'));
     }
 
     /**

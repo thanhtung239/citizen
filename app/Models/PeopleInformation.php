@@ -14,7 +14,10 @@ class PeopleInformation extends Model
     protected $fillable = [
         'province_id',
         'district_id',
-        'village_id',
+        'ward_id',
+        'province_admin_id',
+        'district_admin_id',
+        'ward_admin_id',
         'identification',
         'name',
         'birthday',
@@ -23,6 +26,7 @@ class PeopleInformation extends Model
         'resident',
         'religion',
         'edu_level',
+        'hamlet',
         'job',
     ];
 
@@ -57,5 +61,11 @@ class PeopleInformation extends Model
         }
 
         return $query;
+    }
+
+    public function getPeopleResidentAttribute()
+    {
+        $resident = $this->hamlet . ', ' . $this->ward()->first()->name . ', ' . $this->district()->first()->name . ',' . $this->province()->first()->name . ', ' ;
+        return $resident;
     }
 }

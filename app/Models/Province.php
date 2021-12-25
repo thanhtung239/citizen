@@ -22,4 +22,9 @@ class Province extends Model
     {
         return $this->hasMany(PeopleInformation::class, 'province_id');
     }
+
+    public function getRandomDistrictAttribute()
+    {
+        return $this->districts()->inRandomOrder()->limit(1)->first()->id;
+    }
 }

@@ -72,7 +72,7 @@
                                 <td class="row-content text-center">{{ $peopleInfo->hamlet }}</td>
                                 <td class="row-content text-center">{{ $peopleInfo->job }}</td>
                                 <td class="row-content text-center">
-                                    <a href="#editUserModal" class="edit btn-user" value="{{ $peopleInfo->id }}" data-toggle="modal"><i class="faws fas fa-pen" data-toggle="tooltip" data-original-title="Edit"></i></a>
+                                    <a href="{{ route('ward_admin.edit', [$peopleInfo->id]) }}" class="edit btn-user"><i class="faws fas fa-pen" data-toggle="tooltip" data-original-title="Edit"></i></a>
                                     <a href="#deleteUserModal" class="delete btn-user" value="{{ $peopleInfo->id }}" data-toggle="modal"><i class="faws fas fa-trash" data-toggle="tooltip" data-original-title="Delete"></i></a>
                                 </td>
                             </tr>
