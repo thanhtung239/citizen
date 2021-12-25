@@ -1860,6 +1860,8 @@ __webpack_require__(/*! ./home */ "./resources/js/home.js");
 
 __webpack_require__(/*! ./alert */ "./resources/js/alert.js");
 
+__webpack_require__(/*! ./ward_admin */ "./resources/js/ward_admin.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -1913,6 +1915,46 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ (() => {
 
 
+
+/***/ }),
+
+/***/ "./resources/js/ward_admin.js":
+/*!************************************!*\
+  !*** ./resources/js/ward_admin.js ***!
+  \************************************/
+/***/ (() => {
+
+$('#txtProvince').on('change', function () {
+  var provinceId = $(this).val(); // alert(provinceId);
+
+  $.ajax({
+    method: "GET",
+    url: "http://127.0.0.1:8000/provinces-district/" + provinceId,
+    data: provinceId,
+    success: function success(response) {
+      // console.log(response);
+      $('#txtDistrict').html(response); // alert(response);
+    },
+    error: function error(response) {// alert("http://127.0.0.1:8000/provinces-district/" + provinceId);
+    }
+  });
+});
+$('#txtDistrict').on('change', function () {
+  var districtId = $(this).val(); // alert(provinceId);
+
+  $.ajax({
+    method: "GET",
+    url: "http://127.0.0.1:8000/provinces-districts-ward/" + districtId,
+    data: districtId,
+    success: function success(response) {
+      // console.log(response);
+      $('#txtWard').html(response); // alert(response);
+    },
+    error: function error(response) {// alert(0);
+      // alert("http://127.0.0.1:8000/provinces-district/" + districtId);
+    }
+  });
+});
 
 /***/ }),
 

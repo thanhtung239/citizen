@@ -2,69 +2,124 @@
 @section('content')
     <div class="ward-admin-create">
         <div class="ward-admin-create-title w-100 text-center">Khai báo thông tin</div>
-        <form class="contact-form row">
+        <form class="contact-form row" method="post" action="{{ route('ward_admin.store') }}">
+            @csrf
             <div class="form-field col-md-3 col-6">
-                <input id="name" class="input-text js-input" type="text" required>
+                <input id="name" name="name" class="input-text js-input" type="text" required>
                 <label class="label" for="name">Họ và tên</label>
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-field col-md-3 col-6">
-                <input id="email" class="input-text js-input" type="date" required>
-                <label class="label" for="email">Ngày sinh</label>
+                <input id="birthday" name="birthday" class="input-text js-input" type="date" required>
+                <label class="label" for="birthday">Ngày sinh</label>
+                @error('birthday')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-field col-md-3 col-6">
-                <select class="input-text js-input" id="gender" required>
+                <select name="gender" class="input-text js-input" id="gender" required>
                     <option>Nam</option>
                     <option>Nữ</option>
                 </select>
                 <label class="label" for="gender">Giới tính</label>
             </div>
             <div class="form-field col-md-3 col-6">
-                <input id="phone" class="input-text js-input" type="tel" required>
-                <label class="label" for="phone">Chứng minh nhân dân/Căn cước công dân</label>
+                <input name="identification" id="identification" class="input-text js-input" type="tel" required>
+                <label class="label" for="identification">Chứng minh nhân dân/Căn cước công dân</label>
+                @error('identification')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-field col-md-3 col-6">
-                <input id="message" class="input-text js-input" type="text" required>
+                <input id="religion" id="religion" class="input-text js-input" type="text" required>
                 <label class="label" for="message">Tôn giáo</label>
+                @error('religion')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-field col-md-2 col-6">
-                <input id="message" class="input-text js-input" type="text" required>
+                <input id="job" name="job" class="input-text js-input" type="text" required>
                 <label class="label" for="message">Nghề nghiệp</label>
+                @error('job')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-field col-md-2 col-6">
-                <input id="message" class="input-text js-input" type="text" required>
-                <label class="label" for="message">Trình độ học vấn</label>
+                <input id="academicLevel" name="academic_level" class="input-text js-input" type="text" required>
+                <label class="label" for="academicLevel">Trình độ học vấn</label>
+                @error('academic_level')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-field col-md-5 col-6">
-                <input id="message" class="input-text js-input" type="text" required>
-                <label class="label" for="message">Nơi ở hiện tại</label>
+                <input id="address" name="address" class="input-text js-input" type="text" required>
+                <label class="label" for="address">Nơi ở hiện tại</label>
+                @error('address')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-field col-md-3 col-6">
-                <input id="message" class="input-text js-input" type="text" required>
-                <label class="label" for="message">Tỉnh</label>
+                <!-- <input id="message" class="input-text js-input" placeholder="Thái Bình" type="text" required> -->
+                <select id="txtProvince" name="province_id" class="form-control">
+                    @foreach($provinces as $province)
+                        <option class="province-id" value="{{ $province->id }}">{{ $province->name }}</option>
+                    @endforeach
+                </select>
+                <label class="label" for="txtProvince">Tỉnh</label>
+                @error('province_id')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-field col-md-3 col-6">
-                <input id="message" class="input-text js-input" type="text" required>
-                <label class="label" for="message">Quận/Huyện</label>
+                <!-- <input id="txtDistrict" class="input-text js-input" type="text" required> -->
+                <select id="txtDistrict" name="district_id" class="form-control">
+                    <option value="">----</option>
+                </select>
+                <label class="label" for="txtDistrict">Quận/Huyện</label>
+                @error('district_id')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-field col-md-3 col-6">
-                <input id="message" class="input-text js-input" type="text" required>
-                <label class="label" for="message">Xã/Phường</label>
+                <!-- <input id="txtWard" class="input-text js-input" type="text" required> -->
+                <select id="txtWard" name="ward_id" class="form-control">
+                    <option value="">----</option>
+                </select>
+                <label class="label" for="txtWard">Xã/Phường</label>
+                @error('ward_id')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-field col-md-3 col-6">
-                <input id="message" class="input-text js-input" type="text" required>
-                <label class="label" for="message">Thôn/Xóm/Tổ dân phố</label>
-            </div>
-            <div class="form-field col-md-3 col-6">
-                <input id="message" class="input-text js-input" type="text" required>
-                <label class="label" for="message">Mã tỉnh</label>
-            </div>
-            <div class="form-field col-md-3 col-6">
-                <input id="message" class="input-text js-input" type="text" required>
-                <label class="label" for="message">Mã quận/huyện</label>
-            </div>
-            <div class="form-field col-md-3 col-6">
-                <input id="message" class="input-text js-input" type="text" required>
-                <label class="label" for="message">Mã xã/phường</label>
+                <input id="hamlet" name="hamlet" class="input-text js-input" type="text" required>
+                <label class="label" for="hamlet">Thôn/Xóm/Tổ dân phố</label>
+                @error('hamlet')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
 
             <div class="form-field col-12 d-flex justify-content-end">
