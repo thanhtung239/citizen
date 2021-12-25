@@ -76,7 +76,7 @@
             </div>
             <div class="form-field col-md-3 col-6">
                 <!-- <input id="message" class="input-text js-input" placeholder="Thái Bình" type="text" required> -->
-                <select id="txtProvince" name="province_id" class="form-control">
+                <select id="txtProvince" name="province_id" class="input-text js-input">
                     @foreach($provinces as $province)
                         <option class="province-id" value="{{ $province->id }}">{{ $province->name }}</option>
                     @endforeach
@@ -90,7 +90,7 @@
             </div>
             <div class="form-field col-md-3 col-6">
                 <!-- <input id="txtDistrict" class="input-text js-input" type="text" required> -->
-                <select id="txtDistrict" name="district_id" class="form-control">
+                <select id="txtDistrict" name="district_id" class="input-text js-input">
                     <option value="">----</option>
                 </select>
                 <label class="label" for="txtDistrict">Quận/Huyện</label>
@@ -102,7 +102,7 @@
             </div>
             <div class="form-field col-md-3 col-6">
                 <!-- <input id="txtWard" class="input-text js-input" type="text" required> -->
-                <select id="txtWard" name="ward_id" class="form-control">
+                <select id="txtWard" name="ward_id" class="input-text js-input">
                     <option value="">----</option>
                 </select>
                 <label class="label" for="txtWard">Xã/Phường</label>

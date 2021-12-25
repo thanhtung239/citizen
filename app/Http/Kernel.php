@@ -62,6 +62,9 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'ward.admin' => \App\Http\Middleware\WardAdmin::class
+        'central.admin' => \App\Http\Middleware\CentralAdmin::class,
+        'province.admin' => \App\Http\Middleware\ProvinceAdmin::class,
+        'district.admin' => \App\Http\Middleware\DistrictAdmin::class,
+        'ward.admin' => \App\Http\Middleware\WardAdmin::class,
     ];
 }

@@ -72,4 +72,22 @@ class PeopleInformation extends Model
         $resident = $this->hamlet . ', ' . $this->ward()->first()->name . ', ' . $this->district()->first()->name . ',' . $this->province()->first()->name . ', ' ;
         return $resident;
     }
+
+    public function getProvinceOfPeopleAttribute()
+    {
+        $province =  $this->province()->first()->name;
+        return $province;
+    }
+
+    public function getDistrictOfPeopleAttribute()
+    {
+        $district =  $this->district()->first()->name;
+        return $district;
+    }
+
+    public function getWardOfPeopleAttribute()
+    {
+        $ward =  $this->ward()->first()->name;
+        return $ward;
+    }
 }

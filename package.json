@@ -26,6 +26,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "canvasjs": "^1.8.3",
         "font-awesome": "^4.7.0"
     }
 }

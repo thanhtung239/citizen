@@ -16136,7 +16136,7 @@ h3 {
 }
 .alert-success, .error-msg {
   left: 41%;
-  top: 105px;
+  top: 20px;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -16702,7 +16702,7 @@ h3 {
     margin-top: 15px;
   }
   .account-management .manage-account {
-    font-size: 27px;
+    font-size: 26px;
   }
   .account-management .column-title {
     font-size: 18px;
@@ -16726,4 +16726,42 @@ h3 {
   .table {
     width: 300%;
   }
+}
+.dashboard .row {
+  padding: 20px 20px 20px 20px;
+}
+.dashboard .row1 {
+  padding-bottom: 20px;
+}
+.dashboard .card {
+  position: relative;
+}
+.dashboard .t {
+  position: absolute;
+  top: 47px;
+  left: 10px;
+  z-index: 100;
+}
+.dashboard .h {
+  position: absolute;
+  bottom: 3px;
+  right: 10px;
+  z-index: 100;
+}
+.dashboard .dash_total {
+  background-color: coral;
+}
+.dashboard .dash_today {
+  background-color: aquamarine;
+}
+.dashboard .dash_male {
+  background-color: darkkhaki;
+}
+.dashboard .dash_female {
+  background-color: hotpink;
+}
+.dashboard .dash_male1 {
+  position: absolute;
+  left: 120px;
+  bottom: 100px;
 }

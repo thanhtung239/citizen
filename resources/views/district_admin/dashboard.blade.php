@@ -1,4 +1,4 @@
-@extends('layouts.ward_admin')
+@extends('layouts.district_admin')
 
 @section('content')
 <!--HEADER-->

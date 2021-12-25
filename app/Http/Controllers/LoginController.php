@@ -14,19 +14,9 @@ class LoginController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function showAdminLogin()
-    {
-        return view('auth.admin_login');
-    }
-
-    /**
-     * Show the application's login form.
-     *
-     * @return \Illuminate\View\View
-     */
     public function showCentralAdminLogin()
     {
-        return view('auth.central_admin_login');
+        return view('show_login.central_admin_login');
     }
 
     /**
@@ -36,7 +26,7 @@ class LoginController extends Controller
      */
     public function showProvinceAdminLogin()
     {
-        return view('auth.province_admin_login');
+        return view('show_login.province_admin_login');
     }
 
     /**
@@ -46,7 +36,7 @@ class LoginController extends Controller
      */
     public function showDistrictAdminLogin()
     {
-        return view('auth.district_admin_login');
+        return view('show_login.district_admin_login');
     }
 
     /**
@@ -56,29 +46,7 @@ class LoginController extends Controller
      */
     public function showWardAdminLogin()
     {
-        return view('auth.ward_admin_login');
-    }
-
-
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function adminLogin(Request $request)
-    {
-        $this->validate($request, [
-            'username' => 'required|string',
-            'password' => 'required|string',
-        ]);
-
-        if (Auth::attempt(['username' => $request['username'], 'password' => $request['password']])) {
-            return redirect()->route('admin.index');
-        } else {
-            return redirect()->back()
-                ->with('error', 'Username or Password are wrong.');
-        }
+        return view('show_login.ward_admin_login');
     }
 
     /**
@@ -89,15 +57,18 @@ class LoginController extends Controller
     public function centralAdminLogin(Request $request)
     {
         $this->validate($request, [
-            'username' => 'required|string',
+            'email' => 'required|email',
             'password' => 'required|string',
         ]);
 
-        if (Auth::attempt(['username' => $request['username'], 'password' => $request['password']])) {
-            return redirect()->route('admin.index');
+        if (auth()->guard('central_admin')->attempt([
+            'email' => $request['email'],
+            'password' => $request['password']
+        ])) {
+            return redirect()->route('central_admin.dashboard')->with('success', 'Access successful!');
         } else {
             return redirect()->back()
-                ->with('error', 'Username or Password are wrong.');
+                ->with('error', 'These credentials do not match our records.');
         }
     }
 
@@ -109,15 +80,18 @@ class LoginController extends Controller
     public function provinceAdminLogin(Request $request)
     {
         $this->validate($request, [
-            'username' => 'required|string',
+            'email' => 'required|email',
             'password' => 'required|string',
         ]);
 
-        if (Auth::attempt(['username' => $request['username'], 'password' => $request['password']])) {
-            return redirect()->route('admin.index');
+        if (auth()->guard('province_admin')->attempt([
+            'email' => $request['email'],
+            'password' => $request['password']
+        ])) {
+            return redirect()->route('province_admin.dashboard')->with('success', 'Access successful!');
         } else {
             return redirect()->back()
-                ->with('error', 'Username or Password are wrong.');
+                ->with('error', 'These credentials do not match our records.');
         }
     }
 
@@ -127,17 +101,20 @@ class LoginController extends Controller
      * @return void
      */
     public function districtAdminLogin(Request $request)
-    {
+    {    
         $this->validate($request, [
-            'username' => 'required|string',
+            'email' => 'required|email',
             'password' => 'required|string',
         ]);
-
-        if (Auth::attempt(['username' => $request['username'], 'password' => $request['password']])) {
-            return redirect()->route('admin.index');
+        
+        if (auth()->guard('district_admin')->attempt([
+            'email' => $request['email'],
+            'password' => $request['password']
+        ])) {
+            return redirect()->route('district_admin.dashboard')->with('success', 'Access successful!');
         } else {
             return redirect()->back()
-                ->with('error', 'Username or Password are wrong.');
+                ->with('error', 'These credentials do not match our records.');
         }
     }
 
@@ -162,17 +139,6 @@ class LoginController extends Controller
             return redirect()->back()
                 ->with('error', 'These credentials do not match our records.');
         }
-    }
-
-    public function AdminLogout(Request $request)
-    {
-        auth()->guard('admin')->logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return $request->wantsJson()
-            ? new JsonResponse([], 204)
-            : redirect('/admin/login');
     }
 
     public function centralAdminLogout(Request $request)

@@ -1,9 +1,9 @@
-@extends('layouts.ward_admin')
+@extends('layouts.central_admin')
 
 @section('content')
     <div class="account-management">
         <div class="container-xl d-flex">
-            <form class="management-search mt-5" action="{{ route('ward_admin.index') }}" method="GET">
+            <form class="management-search mt-5" action="{{ route('central_admin.index') }}" method="GET">
                 <div class="row">
                     <div class="col-md-4 d-flex justify-content-center h-100">
                         <div>
@@ -51,7 +51,7 @@
                                     <th class="column-title text-center p-0">Họ và tên</th>
                                     <th class="column-title text-center p-0 gender-column">Giới tính</th>
                                     <th class="column-title text-center p-0">Ngày sinh</th>
-                                    <th class="column-title text-center p-0">Thôn/Xóm/Tổ</th>
+                                    <th class="column-title text-center p-0">Tỉnh</th>
                                     <th class="column-title text-center p-0">Nghề nghiệp</th>
                                     <th class="column-title text-center p-0">Hành động</th>
                                 </div>
@@ -71,10 +71,10 @@
                                     <td class="row-content text-center">{{ $peopleInfo->name }}</td>
                                     <td class="row-content text-center">{{ $peopleInfo->gender }}</td>
                                     <td class="row-content text-center">{{ $peopleInfo->birthday }}</td>
-                                    <td class="row-content text-center">{{ $peopleInfo->hamlet }}</td>
+                                    <td class="row-content text-center">{{ $peopleInfo->province_of_people }}</td>
                                     <td class="row-content text-center">{{ $peopleInfo->job }}</td>
                                     <td class="row-content text-center">
-                                        <a href="{{ route('ward_admin.edit', [$peopleInfo->id]) }}" class="edit btn-user"><i class="faws fas fa-pen" data-toggle="tooltip" data-original-title="Edit"></i></a>
+                                        <a href="{{ route('central_admin.edit', [$peopleInfo->id]) }}" class="edit btn-user"><i class="faws fas fa-pen" data-toggle="tooltip" data-original-title="Edit"></i></a>
                                         <a href="#deleteUserModal" class="delete btn-user" value="{{ $peopleInfo->id }}" data-toggle="modal"><i class="faws fas fa-trash" data-toggle="tooltip" data-original-title="Delete"></i></a>
                                     </td>
                                 </tr>
@@ -83,7 +83,7 @@
                                 <div id="deleteUserModal" class="modal fade">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
-                                            <form action="{{route('ward_admin.index')}}" method="POST">
+                                            <form action="{{route('central_admin.index')}}" method="POST">
                                                 @csrf
                                                 <div class="modal-header">						
                                                     <div class="modal-title">Delete User</div>

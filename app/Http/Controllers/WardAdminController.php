@@ -7,8 +7,6 @@ use App\Models\PeopleInformation;
 use App\Models\Province;
 use App\Models\District;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Province;
-use App\Models\District;
 use stdClass;
 use App\Http\Requests\WardAdminRequest;
 
@@ -57,7 +55,6 @@ class WardAdminController extends Controller
     {
         $district = District::findOrFail($request['id']);
         $wards = $district->wards;
-        // dd($district);
         foreach ($wards as $ward) {
             echo "<option value='".$ward->id."'>".$ward->name."</option>";
         }
@@ -71,7 +68,6 @@ class WardAdminController extends Controller
      */
     public function store(WardAdminRequest $request)
     {
-        // dd($request['name']);
         PeopleInformation::create([
             'province_id' => $request['province_id'],
             'district_id' => $request['district_id'],
@@ -90,7 +86,7 @@ class WardAdminController extends Controller
             'edu_level' => $request['academic_level']
         ]);
 
-        return back()->with('success', 'Tạo thành công!');
+        return back()->with('success', 'Khai báo thành công!');
         
     }
 

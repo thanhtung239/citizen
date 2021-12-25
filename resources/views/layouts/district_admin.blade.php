@@ -26,24 +26,28 @@
                 <div class="" id="">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active mr-2">
-                        <a class="nav-link {{ Route::currentRouteName() == 'ward_admin.dashboard' ? 'active' : '' }}" href="{{ route('ward_admin.dashboard') }}">Dashboard</a>
+                         @if (Auth::guard('district_admin')->check())
+                            <a class="nav-link {{ Route::currentRouteName() == 'district_admin.dashboard' ? 'active' : '' }}" href="{{ route('district_admin.dashboard') }}">Dashboard</a>
+                         @endif
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::currentRouteName() == 'ward_admin.index' ? 'active' : '' }}" href="{{ route('ward_admin.index') }}">Danh sách nhân khẩu</a>
-                    </li>
-                    <li class="nav-item ml-2">
-                        <a class="nav-link {{ Route::currentRouteName() == 'ward_admin.create' ? 'active' : '' }}" href="{{ route('ward_admin.create') }}">Khai báo</a>
+                         @if (Auth::guard('district_admin')->check())
+                            <a class="nav-link {{ Route::currentRouteName() == 'district_admin.index' ? 'active' : '' }}" href="{{ route('district_admin.index') }}">Danh sách nhân khẩu</a>
+                         @endif
                     </li>
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link navbar-link-element  dropdown-toggle name-of-user" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::guard('ward_admin')->user()->name }}
+                        <a id="navbarDropdown" class="nav-link navbar-link-element  dropdown-toggle name-of-user" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>      
+                            @if (Auth::guard('district_admin')->check())
+                                {{ Auth::guard('district_admin')->user()->name }}
+                            @endif
                         </a>
-
                         <div class="dropdown-menu dropdown-menu-center" aria-labelledby="navbarDropdown" id="dropdownMenuUser">
-                            <form id="logoutForm" action="{{ route('ward_admin.logout') }}" method="POST">
+                            @if (Auth::guard('district_admin')->check())
+                                <form id="logoutForm" action="{{ route('district_admin.logout') }}" method="POST">
                                 @csrf
                                 <button id="logoutButton" type="submit" class="dropdown-item m-0 text-center">Logout</button>
-                            </form>
+                                </form>
+                            @endif
                         </div>
                     </li>
                     <li class="mr-md-5">
