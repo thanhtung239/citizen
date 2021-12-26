@@ -12,6 +12,9 @@ class CentralAdmin extends Authenticatable
     use HasFactory;
     use SoftDeletes;
 
+    const APPROVED = 1;
+    const NOT_APPROVED = 0;
+
     protected $fillable = [
         'name',
         'email',

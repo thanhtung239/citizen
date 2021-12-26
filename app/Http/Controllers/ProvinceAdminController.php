@@ -107,4 +107,20 @@ class ProvinceAdminController extends Controller
     {
         //
     }
+
+    // public function approveDistrict()
+    // {
+    //     if (DIstrictAdmin::all()->count() == 0) {
+    //         return "404";
+    //     } else {
+    //         if (DistrAdmin::where('approval_status', 1)->count() == 0) {
+    //             ProvinceAdmin::where('approval_status', 0)->update(['approval_status' => 1]);
+    //             DistrictAdmin::where('approval_status', 0)->update(['approval_status' => 1]);
+    //         } else {
+    //             ProvinceAdmin::where('approval_status', 1)->update(['approval_status' => 0]);
+    //             DistrictAdmin::where('approval_status', 1)->update(['approval_status' => 0]);
+    //         }
+    //     }
+    //     // dd(ProvinceAdmin::where('approval_status', 1)->count());
+    // }
 }

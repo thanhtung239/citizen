@@ -2118,6 +2118,20 @@ $('#txtDistrict').on('change', function () {
     }
   });
 });
+$('#btnApprove').on('click', function () {
+  $.ajax({
+    method: "GET",
+    url: "/approve-provinces",
+    data: 0,
+    success: function success(response) {
+      // console.log(response);
+      // alert(response);
+      $('#btnApprove').text(response); // alert(response);
+    },
+    error: function error(response) {// alert(0);
+    }
+  });
+});
 
 /***/ }),
 

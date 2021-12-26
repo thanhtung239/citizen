@@ -54,12 +54,14 @@ Route::group(['middleware' => ['central.admin']], function () {
     Route::resource('central_admin', CentralAdminController::class);
     Route::get('/provinces-district/{id}', [CentralAdminController::class, 'indexDistrict']);
     Route::get('/provinces-districts-ward/{id}', [CentralAdminController::class, 'indexWard']);
+    Route::get('/approve-provinces', [CentralAdminController::class, 'approveProvince']);
 });
 
 Route::group(['middleware' => ['province.admin']], function () {
     Route::resource('province_admin', ProvinceAdminController::class);
     Route::get('/provinces-district/{id}', [ProvinceAdminController::class, 'indexDistrict']);
     Route::get('/provinces-districts-ward/{id}', [ProvinceAdminController::class, 'indexWard']);
+    // Route::get('/approve-districts', [ProvinceAdminController::class, 'approveDistrict']);
 });
 
 Route::group(['middleware' => ['district.admin']], function () {

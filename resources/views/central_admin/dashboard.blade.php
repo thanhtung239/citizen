@@ -2,6 +2,8 @@
 
 @section('content')
 <!--HEADER-->
+@csrf
+<button class="btn btn-primary float-right" id="btnApprove" type="button">{{ $status }}</button>
     <div class="dashboard mt-5 pb-5">
         <div class="align-items-center row">
             <div class="col-12 col-sm-12 col-md-6 col-xl-3 row1">
