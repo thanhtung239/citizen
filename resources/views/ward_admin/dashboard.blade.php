@@ -8,7 +8,7 @@
                 <div class="card text-center pl-3 dash_total" >
                     <div class="card-body">
                         <p class="mb-1 "><b>Tổng số người đã khai báo</b></p>
-                        <span id="dash_num1" class="h1 fw-bold">30000</span>
+                        <span id="dash_num1" class="h1 fw-bold">{{ $totalRegistedPeople }}</span>
                         <span>Người</span>
                     </div>
                 </div>
@@ -17,7 +17,7 @@
                 <div class="card text-center pl-3 dash_today" >
                     <div class="card-body">
                         <p class="mb-1"><b>Khai báo trong ngày</b></p>
-                        <span id="dash_num2" class="h1">1000</span>
+                        <span id="dash_num2" class="h1">{{ $totalRegistedPeopleInDay }}</span>
                         <span >Người</span>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                 <div class="card text-center pl-3 dash_male" >
                     <div class="card-body">
                         <p class="mb-1"><b>Tổng số nam</b></p>
-                        <span id="dash_num3" class="h1">15000</span>
+                        <span id="dash_num3" class="h1">{{ $totalMen }}</span>
                         <span>Người</span>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                 <div class="card text-center pl-3 dash_female" >
                     <div class="card-body">
                         <p class="mb-1"><b>Tổng số nữ</b></p>
-                        <span id=dash_num4 class="h1">15000</span>
+                        <span id=dash_num4 class="h1">{{ $totalWomen }}</span>
                         <span>Người</span>
                     </div>
                 </div>

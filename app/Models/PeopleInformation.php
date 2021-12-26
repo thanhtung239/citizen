@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\ProvinceAdmin;
+use App\Models\WardAdmin;
+use App\Models\DistrictAdmin;
 
 class PeopleInformation extends Model
 {
@@ -39,14 +42,29 @@ class PeopleInformation extends Model
         return $this->belongsTo(Province::class, 'province_id');
     }
 
+    public function provinceAdmin()
+    {
+        return $this->belongsTo(ProvinceAdmin::class, 'employee_number');
+    }
+
     public function district()
     {
         return $this->belongsTo(District::class, 'district_id');
     }
 
+    public function districtAdmin()
+    {
+        return $this->belongsTo(ProvinceAdmin::class, 'employee_number');
+    }
+
     public function ward()
     {
         return $this->belongsTo(Ward::class, 'ward_id');
+    }
+
+    public function wardAdmin()
+    {
+        return $this->belongsTo(ProvinceAdmin::class, 'employee_number');
     }
 
     public function getNameProvinceAttribute()

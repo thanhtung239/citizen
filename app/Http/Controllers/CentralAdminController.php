@@ -9,12 +9,21 @@ use App\Models\District;
 use Illuminate\Support\Facades\Auth;
 use stdClass;
 use App\Http\Requests\WardAdminRequest;
+use Carbon\Carbon;
+use App\Models\CentralAdmin;
 
 class CentralAdminController extends Controller
 {
     public function dashboard()
     {
-        return view('central_admin.dashboard');
+        $today = Carbon::now();
+        $today = $today->toDateString();
+        $totalRegistedPeople = PeopleInformation::all()->count();
+        $totalRegistedPeopleInDay = PeopleInformation::where('created_at', '>=', $today)->count();
+        $totalMen = PeopleInformation::where('gender', 'Nam')->count();
+        $totalWomen = PeopleInformation::where('gender', 'Nu')->count();
+        
+        return view('central_admin.dashboard', compact('totalRegistedPeople', 'totalRegistedPeopleInDay', 'totalMen', 'totalWomen'));
     }
 
 
