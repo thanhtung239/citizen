@@ -48,7 +48,7 @@ class ProvinceAdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('province_admin.create');
     }
 
     /**

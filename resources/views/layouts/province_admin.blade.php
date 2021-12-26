@@ -35,6 +35,11 @@
                             <a class="nav-link {{ Route::currentRouteName() == 'province_admin.index' ? 'active' : '' }}" href="{{ route('province_admin.index') }}">Danh sách nhân khẩu</a>
                          @endif
                     </li>
+                    <li class="nav-item">
+                        @if (Auth::guard('province_admin')->check())
+                            <a class="nav-link {{ Route::currentRouteName() == 'province_admin.create' ? 'active' : '' }}" href="{{ route('province_admin.create') }}">Cấp tài khoản</a>
+                         @endif
+                    </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link navbar-link-element  dropdown-toggle name-of-user" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>      
                             @if (Auth::guard('province_admin')->check())
@@ -62,5 +67,6 @@
         </div>
         @yield('content')
     </main>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>

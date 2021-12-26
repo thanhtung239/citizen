@@ -101,10 +101,17 @@ window.onload = function () {
     }
     e.chart.render();
   }
-  animateValue(document.getElementById("dash_num1"), 0, 30000, 1500);
-  animateValue(document.getElementById("dash_num2"), 0, 1000, 1500);
-  animateValue(document.getElementById("dash_num3"), 0, 15000, 1500);
-  animateValue(document.getElementById("dash_num4"), 0, 15000, 1500);
+
+  var totalRegistedPeople = $('#dash_num1').attr('total-register-people');
+  var totalRegistedPeopleToday = $('#dash_num2').attr('total-register-people-today');
+  var totalMale = $('#dash_num3').attr('total-male');
+  var totalFemale = $('#dash_num4').attr('total-female');
+
+
+  animateValue(document.getElementById("dash_num1"), 0, totalRegistedPeople, 1000);
+  animateValue(document.getElementById("dash_num2"), 0, totalRegistedPeopleToday, 1000);
+  animateValue(document.getElementById("dash_num3"), 0, totalMale, 1000);
+  animateValue(document.getElementById("dash_num4"), 0, totalFemale, 1000);
 
   function animateValue(obj, start, end, duration) {
     let startTimestamp = null;

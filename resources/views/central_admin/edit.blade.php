@@ -82,7 +82,7 @@
                 <label class="label" for="message">Thôn/Xóm/Tổ dân phố</label>
             </div>
             <div class="form-field col-12 d-flex justify-content-end">
-                <input class="submit-btn mr-5" type="submit" value="Submit">
+                <input class="submit-btn mr-5" type="submit" value="Xác nhận">
             </div>
         </form>
     </div>

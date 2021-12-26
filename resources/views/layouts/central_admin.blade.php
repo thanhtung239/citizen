@@ -9,8 +9,6 @@
 
     <title>{{ config('app.name', 'Admin login') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -33,6 +31,11 @@
                     <li class="nav-item">
                         @if (Auth::guard('central_admin')->check())
                             <a class="nav-link {{ Route::currentRouteName() == 'central_admin.index' ? 'active' : '' }}" href="{{ route('central_admin.index') }}">Danh sách nhân khẩu</a>
+                         @endif
+                    </li>
+                    <li class="nav-item">
+                        @if (Auth::guard('central_admin')->check())
+                            <a class="nav-link {{ Route::currentRouteName() == 'central_admin.create' ? 'active' : '' }}" href="{{ route('central_admin.create') }}">Cấp tài khoản</a>
                          @endif
                     </li>
                     <li class="nav-item dropdown">
@@ -62,5 +65,9 @@
         </div>
         @yield('content')
     </main>
+
+    <!-- Scripts -->
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>

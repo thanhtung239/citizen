@@ -89,7 +89,6 @@
                 @enderror
             </div>
             <div class="form-field col-md-3 col-6">
-                <!-- <input id="txtDistrict" class="input-text js-input" type="text" required> -->
                 <select id="txtDistrict" name="district_id" class="input-text js-input">
                     <option value="">----</option>
                 </select>
@@ -101,7 +100,6 @@
                 @enderror
             </div>
             <div class="form-field col-md-3 col-6">
-                <!-- <input id="txtWard" class="input-text js-input" type="text" required> -->
                 <select id="txtWard" name="ward_id" class="input-text js-input">
                     <option value="">----</option>
                 </select>
@@ -123,7 +121,7 @@
             </div>
 
             <div class="form-field col-12 d-flex justify-content-end">
-                <input class="submit-btn mr-5" type="submit" value="Submit">
+                <input class="submit-btn mr-5" type="submit" value="Khai báo">
             </div>
         </form>
     </div>

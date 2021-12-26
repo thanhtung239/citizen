@@ -4,6 +4,10 @@
   color: #566787;
   background: #ffffff;
   font-family: $font_basic;
+
+  .table-min-width {
+    overflow: auto;
+  }
   
   .table-responsive {
     margin: 30px 0 50px 0;

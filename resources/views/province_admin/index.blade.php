@@ -40,7 +40,7 @@
                     </div>
                 </div>
 
-                <div class="table-min-width" style="overflow: scroll;">
+                <div class="table-min-width">
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
@@ -108,7 +108,7 @@
                 </div>
 
                 <div class="clearfix d-flex align-items-end">
-                    <div class="pagination-custom container mt-5 pr-4 d-flex justify-content-end">
+                    <div class="pagination-custom container mt-5 pr-4 d-flex justify-content-center">
                         {!! $people->appends($_GET)->onEachSide(1)->links() !!}
                     </div>
                 </div>

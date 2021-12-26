@@ -25,9 +25,9 @@ class CentralAdminController extends Controller
         $totalMen = PeopleInformation::where('gender', 'Nam')->count();
         $totalWomen = PeopleInformation::where('gender', 'Nu')->count();
         if (ProvinceAdmin::where('approval_status', 1)->count() == 0) {
-            $status = "Mở chức năng CRUD";
+            $status = "Mở chức năng khai báo";
         } else {
-            $status = "Đóng chức năng CRUD";
+            $status = "Đóng chức năng khai báo";
         }
         return view('central_admin.dashboard', compact('totalRegistedPeople', 'totalRegistedPeopleInDay', 'totalMen', 'totalWomen', 'status'));
     }
@@ -51,7 +51,7 @@ class CentralAdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('central_admin.create');
     }
 
     /**

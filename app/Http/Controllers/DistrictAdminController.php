@@ -47,7 +47,7 @@ class DistrictAdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('district_admin.create');
     }
 
     /**
