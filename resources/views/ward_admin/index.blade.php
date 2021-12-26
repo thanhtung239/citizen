@@ -66,7 +66,7 @@
                                             <label for="checkbox1"></label>
                                         </span>
                                     </td>
-                                    <td class="row-content text-center">1</td>
+                                    <td class="row-content text-center">{{ $key + 1 }}</td>
                                     <td class="row-content text-center">{{ $peopleInfo->identification }}</td>
                                     <td class="row-content text-center">{{ $peopleInfo->name }}</td>
                                     <td class="row-content text-center">{{ $peopleInfo->gender }}</td>
@@ -74,8 +74,13 @@
                                     <td class="row-content text-center">{{ $peopleInfo->hamlet }}</td>
                                     <td class="row-content text-center">{{ $peopleInfo->job }}</td>
                                     <td class="row-content text-center">
-                                        <a href="{{ route('ward_admin.edit', [$peopleInfo->id]) }}" class="edit btn-user"><i class="faws fas fa-pen" data-toggle="tooltip" data-original-title="Edit"></i></a>
-                                        <a href="#deleteUserModal" class="delete btn-user" value="{{ $peopleInfo->id }}" data-toggle="modal"><i class="faws fas fa-trash" data-toggle="tooltip" data-original-title="Delete"></i></a>
+                                         @if (Auth::guard('ward_admin')->user()->approval_status == 1)
+                                            <a href="{{ route('ward_admin.edit', [$peopleInfo->id]) }}" class="edit btn-user"><i class="faws fas fa-pen" data-toggle="tooltip" data-original-title="Edit"></i></a>
+                                            <a href="#deleteUserModal" class="delete btn-user" value="{{ $peopleInfo->id }}" data-toggle="modal"><i class="faws fas fa-trash" data-toggle="tooltip" data-original-title="Delete"></i></a>
+                                        @else
+                                            <a class="edit btn-user"><i class="faws fas fa-pen" data-toggle="tooltip" data-original-title="Edit"></i></a>
+                                            <a class="delete btn-user" value="{{ $peopleInfo->id }}" data-toggle="modal"><i class="faws fas fa-trash" data-toggle="tooltip" data-original-title="Delete"></i></div>
+                                        @endif
                                     </td>
                                 </tr>
 

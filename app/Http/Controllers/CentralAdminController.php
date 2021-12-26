@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use App\Models\CentralAdmin;
 use App\Models\ProvinceAdmin;
 use App\Models\DistrictAdmin;
+use App\Models\WardAdmin;
 
 class CentralAdminController extends Controller
 {
@@ -24,12 +25,13 @@ class CentralAdminController extends Controller
         $totalRegistedPeopleInDay = PeopleInformation::where('created_at', '>=', $today)->count();
         $totalMen = PeopleInformation::where('gender', 'Nam')->count();
         $totalWomen = PeopleInformation::where('gender', 'Nu')->count();
+        $percentMen = round($totalMen / $totalRegistedPeople);
         if (ProvinceAdmin::where('approval_status', 1)->count() == 0) {
             $status = "Mở chức năng khai báo";
         } else {
             $status = "Đóng chức năng khai báo";
         }
-        return view('central_admin.dashboard', compact('totalRegistedPeople', 'totalRegistedPeopleInDay', 'totalMen', 'totalWomen', 'status'));
+        return view('central_admin.dashboard', compact('totalRegistedPeople', 'totalRegistedPeopleInDay', 'totalMen', 'totalWomen', 'status', 'percentMen'));
     }
 
 
@@ -51,7 +53,8 @@ class CentralAdminController extends Controller
      */
     public function create()
     {
-        return view('central_admin.create');
+        $provinces = Province::orderBy('name')->get();
+        return view('central_admin.create', compact('provinces'));
     }
 
     /**
@@ -60,9 +63,17 @@ class CentralAdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(WardAdminRequest $request)
     {
-        //
+        ProvinceAdmin::create([
+            'email' => $request['email'],
+            'password' => bcrypt($request['password']),
+            'name' => $request['name'],
+            'phone' => $request['phone'],
+            'employee_number' => $request['province_id'],
+        ]);
+
+        return back()->with('success', 'Tạo tài khoản thành công!');
     }
 
     /**
@@ -96,9 +107,38 @@ class CentralAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $info)
     {
-        //
+
+        $people = PeopleInformation::where('id', $info)->first();
+
+        if (isset($request['name'])) {
+            $people->name = $request['name'];
+        }
+        if (isset($request['birthday'])) {
+            $people->birthday = $request['birthday'];
+        }
+        if (isset($request['identification'])) {
+            $people->identification = $request['identification'];
+        }
+        if (isset($request['gender'])) {
+            $people->gender = $request['gender'];
+        }
+        if (isset($request['religion'])) {
+            $people->religion = $request['religion'];
+        }
+        if (isset($request['edu_level'])) {
+            $people->edu_level = $request['edu_level'];
+        }
+        if (isset($request['hamlet'])) {
+            $people->hamlet = $request['hamlet'];
+        }
+        if (isset($request['job'])) {
+            $people->job = $request['job'];
+        }
+        $people->save();
+
+        return redirect()->back()->with('success', 'Cập nhật thành công!');
     }
 
     /**
@@ -140,11 +180,13 @@ class CentralAdminController extends Controller
             if (ProvinceAdmin::where('approval_status', 1)->count() == 0) {
                 ProvinceAdmin::where('approval_status', 0)->update(['approval_status' => 1]);
                 DistrictAdmin::where('approval_status', 0)->update(['approval_status' => 1]);
-                return "Đóng chức năng CRUD";
+                WardAdmin::where('approval_status', 0)->update(['approval_status' => 1]);
+                return "Đóng quyền khai báo";
             } else {
                 ProvinceAdmin::where('approval_status', 1)->update(['approval_status' => 0]);
                 DistrictAdmin::where('approval_status', 1)->update(['approval_status' => 0]);
-                return "Mở chức năng CRUD";
+                WardAdmin::where('approval_status', 1)->update(['approval_status' => 0]);
+                return "Mở quyền khai báo";
             }
         }
         // dd(ProvinceAdmin::where('approval_status', 1)->count());

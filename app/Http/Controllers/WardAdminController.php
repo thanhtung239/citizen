@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\PeopleInformation;
 use App\Models\Province;
 use App\Models\District;
+use App\Models\Ward;
 use Illuminate\Support\Facades\Auth;
 use stdClass;
 use App\Http\Requests\WardAdminRequest;
@@ -78,7 +79,7 @@ class WardAdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(WardAdminRequest $request)
+    public function store(Request $request)
     {
         PeopleInformation::create([
             'province_id' => $request['province_id'],
@@ -94,7 +95,7 @@ class WardAdminController extends Controller
             'religion' => $request['religion'],
             'job' => $request['job'],
             'hamlet' => $request['hamlet'],
-            'home_town' => $request['address'],
+            'resident' => $request['resident'],
             'edu_level' => $request['academic_level']
         ]);
 
@@ -132,9 +133,38 @@ class WardAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $info)
     {
-        //
+
+        $people = PeopleInformation::where('id', $info)->first();
+
+        if (isset($request['name'])) {
+            $people->name = $request['name'];
+        }
+        if (isset($request['birthday'])) {
+            $people->birthday = $request['birthday'];
+        }
+        if (isset($request['identification'])) {
+            $people->identification = $request['identification'];
+        }
+        if (isset($request['gender'])) {
+            $people->gender = $request['gender'];
+        }
+        if (isset($request['religion'])) {
+            $people->religion = $request['religion'];
+        }
+        if (isset($request['edu_level'])) {
+            $people->edu_level = $request['edu_level'];
+        }
+        if (isset($request['hamlet'])) {
+            $people->hamlet = $request['hamlet'];
+        }
+        if (isset($request['job'])) {
+            $people->job = $request['job'];
+        }
+        $people->save();
+        
+        return redirect()->back()->with('success', 'Cập nhật thành công!');
     }
 
     /**

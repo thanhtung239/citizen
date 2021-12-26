@@ -1936,10 +1936,10 @@ window.onload = function () {
       toolTipContent: "<b>{name}</b>: {y} Người (#percent%)",
       indexLabel: "{name} - #percent%",
       dataPoints: [{
-        y: 15000,
+        y: 5042,
         name: "Nam"
       }, {
-        y: 15000,
+        y: 4960,
         name: "Nữ"
       }]
     }]
@@ -1957,33 +1957,33 @@ window.onload = function () {
       toolTipContent: "<b>{label}</b><br>Số người:{y} Người<br>{persent}% Dân số",
       dataPoints: [{
         label: "0-20",
-        y: 1000,
-        persent: 5.8,
+        y: 2009,
+        persent: 20.08,
         url: "israel.png"
       }, {
         label: "20-40",
-        y: 4000,
-        persent: 2.0,
+        y: 6015,
+        persent: 60.15,
         url: "australia.png"
       }, {
         label: "40-60",
-        y: 6000,
-        persent: 1.2,
+        y: 1521,
+        persent: 15.2,
         url: "germany.png"
       }, {
         label: "60-80",
-        y: 8000,
+        y: 381,
         persent: 1.9,
         url: "uk.png"
       }, {
         label: "80-90",
-        y: 9000,
-        persent: 2.5,
+        y: 70,
+        persent: 3.8,
         url: "india.png"
       }, {
         label: ">90",
-        y: 10000,
-        persent: 5.3,
+        y: 5,
+        persent: 0.05,
         url: "russia.png"
       }]
     }]
@@ -1998,7 +1998,7 @@ window.onload = function () {
       title: "Số người"
     },
     axisX: {
-      title: "Trình độ"
+      title: ""
     },
     data: [{
       type: "column",
@@ -2006,17 +2006,20 @@ window.onload = function () {
         title: "Số người"
       },
       dataPoints: [{
-        y: 1000,
+        y: 10001,
         label: "Tiểu học"
       }, {
-        y: 2000,
+        y: 9978,
         label: "Trung học"
       }, {
-        y: 3000,
+        y: 9950,
         label: "Phổ thông"
       }, {
-        y: 4000,
+        y: 4056,
         label: "Đại học"
+      }, {
+        y: 50,
+        label: "Cao học"
       }]
     }]
   });
@@ -2028,13 +2031,13 @@ window.onload = function () {
       toolTipContent: "{name}: <strong>{y}%</strong>",
       indexLabel: "{name} - {y}%",
       dataPoints: [{
-        y: 20,
+        y: 20.08,
         name: "Trước độ tuổi lao động"
       }, {
-        y: 60,
+        y: 75.35,
         name: "Trong độ tuổi lao động"
       }, {
-        y: 20,
+        y: 4.57,
         name: "Sau độ tuổi lao động"
       }]
     }]

@@ -29,6 +29,11 @@ class District extends Model
         return $this->hasMany(PeopleInformation::class, 'district_id');
     }
 
+    public function wardAdmins()
+    {
+        return $this->hasMany(WardAdmin::class, 'district_id');
+    }
+
     public function getRandomWardAttribute()
     {
         return $this->wards()->inRandomOrder()->limit(1)->first()->id;

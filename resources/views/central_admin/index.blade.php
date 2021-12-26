@@ -66,7 +66,7 @@
                                             <label for="checkbox1"></label>
                                         </span>
                                     </td>
-                                    <td class="row-content text-center">1</td>
+                                    <td class="row-content text-center">{{ $key + 1 }}</td>
                                     <td class="row-content text-center">{{ $peopleInfo->identification }}</td>
                                     <td class="row-content text-center">{{ $peopleInfo->name }}</td>
                                     <td class="row-content text-center">{{ $peopleInfo->gender }}</td>

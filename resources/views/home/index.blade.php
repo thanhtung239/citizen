@@ -2,13 +2,6 @@
 
 @section('content')
 	<div class="home">
-		<!-- PRELOADER -->
-		{{-- <div class="loader">
-			<div class="loader-icon">
-				<img src="img/loader.png" alt="preloder">
-			</div>
-		</div> --}}
-		<!-- START HEADER AREA -->
 		<header id="bottomToup" class="header-area">
 			<!-- main header here -->
 			<div class="main-header">
@@ -22,13 +15,15 @@
 								</a>
 							</div>
 						</div>
-						<!-- manu -->
-						<div class="col-lg-10 main-menu">
-							<nav id="menu">
-								<ul>
-									<li><a class="opinion" href="#">Contact Us</a></li>
-								</ul>
-							</nav>
+						<!-- menu -->
+						<div class="col-lg-10 d-flex justify-content-end">
+							<div class="col-lg-3 main-menu d-flex justify-content-end" style="box-shadow:0;">
+								<nav id="menu menu-custom" style="background: white; box-shadow: 0;">
+									<ul class="d-flex justify-content-center">
+										<li><a class="opinion" href="#" >Contact Us</a></li>
+									</ul>
+								</nav>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -148,56 +143,6 @@
 			</div>
 		</section>
 		<!-- END CHOOSE US AREA -->
-
-
-		<!-- START EVALUATE AREA -->
-		<section id="evaluate" class="evaluate-area">
-			<div class="container">
-				<div class="row justify-content-end">
-					<div class="col-lg-7 col-md-12">
-						<div data-wow-duration="1.5s" class="owl-carousel wow animate__animated animate__fadeInUp">
-							<div class="evaluate-content">
-								<div class="evaluate-content--img">
-									<img src="img/conten1.png" alt="conten1">
-								</div>
-								<div class="evaluate-content--text">
-									<p>Kết quả Tổng điều tra dân số và Nhà ở năm 2019 (TĐT) do Tổng Cục Thống kê thực hiện cho thấy, dân số Việt Nam đã đạt mốc trên 96 triệu người. Tốc độ tăng dân số giai đoạn 2009-2019 thấp hơn so với giai đoạn 1999-2009 giúp Việt Nam giảm thứ bậc về quy mô dân số trên bản đồ dân số thế giới.</p>
-								</div>
-							</div>
-							<div class="evaluate-content">
-								<div class="evaluate-content--img">
-									<img src="img/conten1.png" alt="conten">
-								</div>
-								<div class="evaluate-content--text">
-									<p>Tỷ trọng dân số từ 15-64 tuổi chiếm 68,0% (giảm 1,1 điểm phần trăm so với năm 2009), tỷ trọng dân số dưới 15 tuổi và từ 65 tuổi trở lên chiếm lần lượt là 24,3% và 7,7%. Như vậy, Việt Nam đang trong thời kỳ “cơ cấu dân số vàng” khi mà cứ một người phụ thuộc thì có hai người trong độ tuổi lao động. Dự báo đến khoảng năm 2040, Việt Nam sẽ kết thúc thời kỳ “cơ cấu dân số vàng”.</p>
-								</div>
-							</div>
-							<div class="evaluate-content">
-								<div class="evaluate-content--img">
-									<img src="img/conten1.png" alt="conten">
-								</div>
-								<div class="evaluate-content--text">
-									<p>Mật độ dân số của Việt Nam là 290 người/km2, tăng 31 người/km2 so với năm 2009. Với kết quả này, Việt Nam là quốc gia có mật độ dân số đứng thứ ba trong khu vực Đông Nam Á, sau Phi-li-pin (363 người/km2) và Xin-ga-po (8.292 người/km2) .</p>
-								</div>
-							</div>
-							<div class="evaluate-content">
-								<div class="evaluate-content--img">
-									<img src="img/conten1.png" alt="conten">
-								</div>
-								<div class="evaluate-content--text">
-									<p>Tại Việt Nam, do sự biến đổi về cơ cấu tuổi của dân số theo xu hướng tỷ trọng của trẻ em dưới 15 tuổi giảm và tỷ trọng của dân số từ 60 tuổi trở lên tăng đã làm cho chỉ số già hóa có xu hướng tăng lên nhanh chóng trong hai thập kỷ qua: Chỉ số già hóa năm 2019 là 48,8%, tăng 13,3 điểm phần trăm so với năm 2009 và tăng hơn hai lần so với năm 1999. Chỉ số già hóa có xu hướng tiếp tục tăng lên trong những năm sắp tới.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- END EVALUATE AREA -->
-		
-
-
-
 
 			<!-- START LATEST NEWS AREA -->
 			<section class="latestNews-area ">

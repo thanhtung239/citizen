@@ -30,7 +30,7 @@
                 <label class="label" for="gender">Giới tính</label>
             </div>
             <div class="form-field col-md-3 col-6">
-                <input name="identification" id="identification" class="input-text js-input" type="tel" required>
+                <input name="identification" id="identification" class="input-text js-input @error('password') is-invalid @enderror" type="tel" required>
                 <label class="label" for="identification">Chứng minh nhân dân/Căn cước công dân</label>
                 @error('identification')
                     <span class="invalid-feedback" role="alert">
@@ -66,8 +66,8 @@
                 @enderror
             </div>
             <div class="form-field col-md-5 col-6">
-                <input id="address" name="address" class="input-text js-input" type="text" required>
-                <label class="label" for="address">Nơi ở hiện tại</label>
+                <input id="resident" name="resident" class="input-text js-input" type="text" required>
+                <label class="label" for="resident">Nơi ở hiện tại</label>
                 @error('address')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -75,7 +75,6 @@
                 @enderror
             </div>
             <div class="form-field col-md-3 col-6">
-                <!-- <input id="message" class="input-text js-input" placeholder="Thái Bình" type="text" required> -->
                 <select id="txtProvince" name="province_id" class="input-text js-input">
                     @foreach($provinces as $province)
                         <option class="province-id" value="{{ $province->id }}">{{ $province->name }}</option>
@@ -90,7 +89,7 @@
             </div>
             <div class="form-field col-md-3 col-6">
                 <select id="txtDistrict" name="district_id" class="input-text js-input">
-                    <option value="">----</option>
+                    <option value="">--Chọn quận/huyện--</option>
                 </select>
                 <label class="label" for="txtDistrict">Quận/Huyện</label>
                 @error('district_id')
@@ -101,7 +100,7 @@
             </div>
             <div class="form-field col-md-3 col-6">
                 <select id="txtWard" name="ward_id" class="input-text js-input">
-                    <option value="">----</option>
+                    <option value="">--Chọn xã/phường--</option>
                 </select>
                 <label class="label" for="txtWard">Xã/Phường</label>
                 @error('ward_id')

@@ -43,6 +43,7 @@
                 </div>
             </div>
         </div>
+        <div class="d-none" percent-men="{{ $percentMen }}"></div>
         <!--END HEADER-->
 
         <!--SEX-CHART AGE-CHART-->

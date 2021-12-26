@@ -66,7 +66,7 @@
                                             <label for="checkbox1"></label>
                                         </span>
                                     </td>
-                                    <td class="row-content text-center">1</td>
+                                    <td class="row-content text-center">{{ $key + 1 }}</td>
                                     <td class="row-content text-center">{{ $peopleInfo->identification }}</td>
                                     <td class="row-content text-center">{{ $peopleInfo->name }}</td>
                                     <td class="row-content text-center">{{ $peopleInfo->gender }}</td>
@@ -74,8 +74,13 @@
                                     <td class="row-content text-center">{{ $peopleInfo->ward_of_people }}</td>
                                     <td class="row-content text-center">{{ $peopleInfo->job }}</td>
                                     <td class="row-content text-center">
-                                        <a href="{{ route('district_admin.edit', [$peopleInfo->id]) }}" class="edit btn-user"><i class="faws fas fa-pen" data-toggle="tooltip" data-original-title="Edit"></i></a>
-                                        <a href="#deleteUserModal" class="delete btn-user" value="{{ $peopleInfo->id }}" data-toggle="modal"><i class="faws fas fa-trash" data-toggle="tooltip" data-original-title="Delete"></i></a>
+                                        @if (Auth::guard('district_admin')->user()->approval_status == 1)
+                                            <a href="{{ route('district_admin.edit', [$peopleInfo->id]) }}" class="edit btn-user"><i class="faws fas fa-pen" data-toggle="tooltip" data-original-title="Edit"></i></a>
+                                            <a href="#deleteUserModal" class="delete btn-user" value="{{ $peopleInfo->id }}" data-toggle="modal"><i class="faws fas fa-trash" data-toggle="tooltip" data-original-title="Delete"></i></a>
+                                        @else
+                                            <a class="edit btn-user"><i class="faws fas fa-pen" data-toggle="tooltip" data-original-title="Edit"></i></a>
+                                            <a class="delete btn-user" value="{{ $peopleInfo->id }}" data-toggle="modal"><i class="faws fas fa-trash" data-toggle="tooltip" data-original-title="Delete"></i></div>
+                                        @endif   
                                     </td>
                                 </tr>
 
@@ -90,8 +95,8 @@
                                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="faws fas fa-times"></i></button>
                                                 </div>
                                                 <div class="modal-body">					
-                                                    <div>Are you sure you want to delete these Records?</div>
-                                                    <div class="text-warning"><small>This action cannot be undone.</small></div>
+                                                    <div>Bạn có thực sự muốn xóa người này?</div>
+                                                    <div class="text-warning"><small>Hành động sẽ không thể hoàn tác.</small></div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <input hidden="true" name="username_id" class="value-id">

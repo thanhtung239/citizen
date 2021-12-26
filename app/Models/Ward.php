@@ -23,4 +23,9 @@ class Ward extends Model
     {
         return $this->hasMany(PeopleInformation::class, 'ward_id');
     }
+
+    public function wardAdmins()
+    {
+        return $this->hasOne(WardAdmin::class, 'ward_id');
+    }
 }

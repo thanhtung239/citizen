@@ -29,4 +29,19 @@ class WardAdmin extends Authenticatable
     {
         return $this->hasMany(PeopleInformation::class, 'ward_admin_id', 'employee_number');
     }
+
+    public function province()
+    {
+        return $this->belongsTo(Province::class, 'province_id');
+    }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class, 'district_id');
+    }
+
+    public function ward()
+    {
+        return $this->belongsTo(Ward::class, 'ward_id');
+    }
 }

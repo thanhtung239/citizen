@@ -31,9 +31,16 @@
                     <li class="nav-item">
                         <a class="nav-link {{ Route::currentRouteName() == 'ward_admin.index' ? 'active' : '' }}" href="{{ route('ward_admin.index') }}">Danh sách nhân khẩu</a>
                     </li>
-                    <li class="nav-item ml-2">
-                        <a class="nav-link {{ Route::currentRouteName() == 'ward_admin.create' ? 'active' : '' }}" href="{{ route('ward_admin.create') }}">Khai báo</a>
-                    </li>
+                     @if (Auth::guard('ward_admin')->user()->approval_status == 1)
+                        <li class="nav-item ml-2">
+                            <a class="nav-link {{ Route::currentRouteName() == 'ward_admin.create' ? 'active' : '' }}" href="{{ route('ward_admin.create') }}">Khai báo</a>
+                        </li>
+                    @else
+                        <li class="nav-item ml-2">
+                            <a class="nav-link {{ Route::currentRouteName() == 'ward_admin.create' ? 'active' : '' }}">Chưa tới thời gian khai báo</a>
+                        </li>
+                    @endif
+                    
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link navbar-link-element  dropdown-toggle name-of-user" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::guard('ward_admin')->user()->name }}
