@@ -5,7 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Ward;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\PeopleInformation;
 
 class WardAdmin extends Authenticatable
 {
@@ -22,4 +24,9 @@ class WardAdmin extends Authenticatable
         'phone',
         'birthday'
     ];
+
+    public function peopleInformations()
+    {
+        return $this->hasMany(PeopleInformation::class, 'ward_admin_id', 'employee_number');
+    }
 }

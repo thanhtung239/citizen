@@ -9,12 +9,24 @@ use App\Models\District;
 use Illuminate\Support\Facades\Auth;
 use stdClass;
 use App\Http\Requests\WardAdminRequest;
+use Carbon\Carbon;
+use App\Models\ProvinceAdmin;
 
 class ProvinceAdminController extends Controller
 {
     public function dashboard()
     {
-        return view('province_admin.dashboard');
+        $user = Auth::guard('province_admin')->user();
+        $today = Carbon::now();
+        $today = $today->toDateString();
+        $totalRegistedPeople = $user->peopleInformations()->count();
+        $totalRegistedPeopleInDay = $user->peopleInformations()->where('created_at', '>=', $today)->count();
+        
+        // $user = ProvinceAdmin::findOrFail($userId);
+        // $user->peopleInformations();
+        $totalMen = $user->peopleInformations()->where('gender', 'Nam')->count();
+        $totalWomen = $user->peopleInformations()->where('gender', 'Nu')->count();
+        return view('province_admin.dashboard', compact('totalRegistedPeople', 'totalRegistedPeopleInDay', 'totalMen', 'totalWomen'));
     }
 
     /**
