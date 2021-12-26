@@ -11,6 +11,8 @@ use stdClass;
 use App\Http\Requests\WardAdminRequest;
 use Carbon\Carbon;
 use App\Models\CentralAdmin;
+use App\Models\ProvinceAdmin;
+use App\Models\DistrictAdmin;
 
 class CentralAdminController extends Controller
 {
@@ -22,8 +24,12 @@ class CentralAdminController extends Controller
         $totalRegistedPeopleInDay = PeopleInformation::where('created_at', '>=', $today)->count();
         $totalMen = PeopleInformation::where('gender', 'Nam')->count();
         $totalWomen = PeopleInformation::where('gender', 'Nu')->count();
-        
-        return view('central_admin.dashboard', compact('totalRegistedPeople', 'totalRegistedPeopleInDay', 'totalMen', 'totalWomen'));
+        if (ProvinceAdmin::where('approval_status', 1)->count() == 0) {
+            $status = "Mở chức năng CRUD";
+        } else {
+            $status = "Đóng chức năng CRUD";
+        }
+        return view('central_admin.dashboard', compact('totalRegistedPeople', 'totalRegistedPeopleInDay', 'totalMen', 'totalWomen', 'status'));
     }
 
 
@@ -124,5 +130,23 @@ class CentralAdminController extends Controller
         foreach ($wards as $ward) {
             echo "<option value='" . $ward->id . "'>" . $ward->name . "</option>";
         }
+    }
+
+    public function approveProvince()
+    {
+        if (ProvinceAdmin::all()->count() == 0) {
+            return "404";
+        } else {
+            if (ProvinceAdmin::where('approval_status', 1)->count() == 0) {
+                ProvinceAdmin::where('approval_status', 0)->update(['approval_status' => 1]);
+                DistrictAdmin::where('approval_status', 0)->update(['approval_status' => 1]);
+                return "Đóng chức năng CRUD";
+            } else {
+                ProvinceAdmin::where('approval_status', 1)->update(['approval_status' => 0]);
+                DistrictAdmin::where('approval_status', 1)->update(['approval_status' => 0]);
+                return "Mở chức năng CRUD";
+            }
+        }
+        // dd(ProvinceAdmin::where('approval_status', 1)->count());
     }
 }
